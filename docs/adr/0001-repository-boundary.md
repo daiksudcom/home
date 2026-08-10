@@ -4,7 +4,10 @@ title: "ADR 0001: Home のリポジトリ境界"
 description: "Homeが所有する表示と配信の責務を、Blog、Content、UIの責務から分離することを定める。"
 resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/0001-repository-boundary.md"
 tags: [home, adr, architecture, repository-boundary]
-timestamp: 2026-08-10T06:56:15Z
+status: stable
+generated:
+  by: "codex/gpt-5.6-sol"
+  at: 2026-08-10T07:07:01Z
 ---
 
 # ADR 0001: Home のリポジトリ境界

@@ -4,7 +4,10 @@ title: "ADR 0005: domain と SEO の所有権"
 description: "daiksud.comをHomeの公開originとcanonicalに定め、SEO metadataとanalyticsの所有権をHomeに置く。"
 resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/0005-domain-and-seo-ownership.md"
 tags: [home, adr, architecture, domain, seo, ownership]
-timestamp: 2026-08-10T06:56:15Z
+status: stable
+generated:
+  by: "codex/gpt-5.6-sol"
+  at: 2026-08-10T07:07:01Z
 ---
 
 # ADR 0005: domain と SEO の所有権

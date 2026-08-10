@@ -4,7 +4,10 @@ title: "ADR 0002: Astro と Cloudflare による SSR"
 description: "Astro 7のserver outputとCloudflare adapterを採用し、Cloudflare WorkersでSSRすることを定める。"
 resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/0002-astro-cloudflare-ssr.md"
 tags: [home, adr, architecture, astro, cloudflare, ssr]
-timestamp: 2026-08-10T06:56:15Z
+status: stable
+generated:
+  by: "codex/gpt-5.6-sol"
+  at: 2026-08-10T07:07:01Z
 ---
 
 # ADR 0002: Astro と Cloudflare による SSR

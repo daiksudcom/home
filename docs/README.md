@@ -4,7 +4,10 @@ title: "文書"
 description: "Homeの受け入れ基準となる振る舞い仕様と技術判断への入口を提供する。"
 resource: "https://github.com/daiksudcom/home/blob/main/docs/README.md"
 tags: [home, documentation, index]
-timestamp: 2026-08-10T06:56:15Z
+status: stable
+generated:
+  by: "codex/gpt-5.6-sol"
+  at: 2026-08-10T07:07:01Z
 ---
 
 # 文書

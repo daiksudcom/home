@@ -4,7 +4,10 @@ title: "Architecture Decision Records"
 description: "Homeのリポジトリ境界、SSR、Content API、ISR、SEO、ツールチェーンに関する設計判断への索引である。"
 resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/README.md"
 tags: [home, adr, architecture, index]
-timestamp: 2026-08-10T06:56:15Z
+status: stable
+generated:
+  by: "codex/gpt-5.6-sol"
+  at: 2026-08-10T07:07:01Z
 ---
 
 # Architecture Decision Records

@@ -4,7 +4,10 @@ title: "ADR 0006: ツールチェーンとバージョン固定"
 description: "Node.js、pnpm、Astro、Vite+を標準とし、build toolと共有packageを厳密なversionに固定する。"
 resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/0006-toolchain-and-version-pinning.md"
 tags: [home, adr, architecture, toolchain, version-pinning]
-timestamp: 2026-08-10T06:56:15Z
+status: stable
+generated:
+  by: "codex/gpt-5.6-sol"
+  at: 2026-08-10T07:07:01Z
 ---
 
 # ADR 0006: ツールチェーンとバージョン固定
