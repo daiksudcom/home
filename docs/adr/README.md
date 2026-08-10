@@ -1,3 +1,12 @@
+---
+type: "Architecture Decision Record Index"
+title: "Architecture Decision Records"
+description: "Homeのリポジトリ境界、SSR、Content API、ISR、SEO、ツールチェーンに関する設計判断への索引である。"
+resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/README.md"
+tags: [home, adr, architecture, index]
+timestamp: 2026-08-10T06:56:15Z
+---
+
 # Architecture Decision Records
 
 | 番号 | 決定 | ステータス | 日付 |

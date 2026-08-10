@@ -1,3 +1,12 @@
+---
+type: "Architecture Decision Record"
+title: "ADR 0004: Cloudflare native ISR"
+description: "Cloudflare native Workers CachingをISR配信層に採用し、TTL、stale配信、resource tag purgeを定める。"
+resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/0004-cloudflare-native-isr.md"
+tags: [home, adr, architecture, cloudflare-native-isr]
+timestamp: 2026-08-10T06:56:15Z
+---
+
 # ADR 0004: Cloudflare native ISR
 
 ## ステータス

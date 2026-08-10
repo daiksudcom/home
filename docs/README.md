@@ -1,3 +1,12 @@
+---
+type: "Documentation Index"
+title: "文書"
+description: "Homeの受け入れ基準となる振る舞い仕様と技術判断への入口を提供する。"
+resource: "https://github.com/daiksudcom/home/blob/main/docs/README.md"
+tags: [home, documentation, index]
+timestamp: 2026-08-10T06:56:15Z
+---
+
 # 文書
 
 このディレクトリは `daiksud.com` の受け入れ基準と技術判断を管理します。

@@ -1,3 +1,12 @@
+---
+type: "Architecture Decision Record"
+title: "ADR 0003: Content API へのアクセス"
+description: "共通Content clientを採用し、本番はService Binding、previewとローカルはHTTPSで記事を取得することを定める。"
+resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/0003-content-api-access.md"
+tags: [home, adr, architecture, content-api-access]
+timestamp: 2026-08-10T06:56:15Z
+---
+
 # ADR 0003: Content API へのアクセス
 
 ## ステータス
