@@ -20,4 +20,4 @@ Feature: Home の正規 URL と発見情報を公開する
 
   Scenario: production の利用を計測する
     When 訪問者が production の Home を表示する
-    Then Cloudflare Web Analytics が privacy-preserving な page view を記録する
+    Then production analytics で privacy-preserving な page view を観測できる

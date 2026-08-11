@@ -12,9 +12,9 @@ Feature: Home から人物と最新記事を知る
       And GitHub の公開プロフィールへのリンクを表示する
       And "https://blog.daiksud.com/" への Blog リンクを表示する
 
-    Scenario: Content がコールド障害である
+    Scenario: 最新記事を取得できない
       Given Content から有効な最新記事を取得できない
-      When Home を SSR する
+      When 訪問者が "https://daiksud.com/" を要求する
       Then プロフィール、GitHub リンク、Blog リンクを表示する
       And 最新記事領域を利用不能状態として明示する
       And ページは HTTP ステータス 200 で応答する
@@ -22,13 +22,13 @@ Feature: Home から人物と最新記事を知る
   Rule: 最新記事は Content の公開順を保持する
 
     Scenario: 最新6件を表示する
-      Given Content API に公開済み Blog 記事が8件ある
-      When Home を SSR する
+      Given Content に公開済み Blog 記事が8件ある
+      When 訪問者が "https://daiksud.com/" を要求する
       Then 公開日時の降順で最初の6件を表示する
       And 各項目は title、description、公開日、tags を表示する
       And 各項目は "https://blog.daiksud.com/{slug}/" にリンクする
 
     Scenario: 公開記事が6件未満である
-      Given Content API に公開済み Blog 記事が3件ある
-      When Home を SSR する
+      Given Content に公開済み Blog 記事が3件ある
+      When 訪問者が "https://daiksud.com/" を要求する
       Then 3件すべてを公開日時の降順で表示する

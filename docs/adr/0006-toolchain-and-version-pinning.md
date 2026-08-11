@@ -7,7 +7,7 @@ tags: [home, adr, architecture, toolchain, version-pinning]
 status: stable
 generated:
   by: "codex/gpt-5.6-sol"
-  at: 2026-08-10T07:07:01Z
+  at: 2026-08-11T21:36:04Z
 ---
 
 # ADR 0006: ツールチェーンとバージョン固定
@@ -36,10 +36,10 @@ Node.js 24、pnpm 11、Astro 7、Vite+ を標準とする。Wrangler は `4.107.
 
 ## 結果
 
-Home の pull request は Home だけを build し、Blog との同時変更を必要としない。Home と Blog は共有 package の異なる version を安全に利用できる。
+repository ごとに固定した toolchain と lockfile から再現可能な成果物を生成できる。Home と Blog は共有 package の異なる version を安全に利用できる。
 
 ## 関連文書
 
-- [Home ISR 仕様](../features/home-isr.feature)
-- [Content](https://github.com/daiksudcom/content)
+- [ADR 0001: Home のリポジトリ境界](0001-repository-boundary.md)
+- [Content package 仕様](https://github.com/daiksudcom/content/blob/main/docs/features/content-package.feature)
 - [UI](https://github.com/daiksudcom/ui)

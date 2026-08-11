@@ -7,7 +7,7 @@ tags: [home, adr, architecture, content-api-access]
 status: stable
 generated:
   by: "codex/gpt-5.6-sol"
-  at: 2026-08-10T07:07:01Z
+  at: 2026-08-11T21:36:04Z
 ---
 
 # ADR 0003: Content API へのアクセス
@@ -26,7 +26,7 @@ Home の production SSR と preview・ローカル開発は通信経路が異な
 
 ## 決定
 
-厳密な SemVer の `@daiksudcom/content` を使い、`createContentClient({ transport })` から `client.blog.list({ limit: 6 })` を呼ぶ。production SSR は Cloudflare Service Binding transport、preview とローカルは `https://content.daiksud.com` または preview origin の HTTPS transport を使う。client は Zod で response を検証する。
+`@daiksudcom/content` の `createContentClient({ transport })` から Blog 一覧 operation を呼ぶ。production SSR は Cloudflare Service Binding transport、preview とローカルは `https://content.daiksud.com` または preview origin の HTTPS transport を使う。client は Zod で response を検証する。
 
 ## 検討した選択肢
 
@@ -36,9 +36,10 @@ Home の production SSR と preview・ローカル開発は通信経路が異な
 
 ## 結果
 
-production は Cloudflare 内の低遅延経路を使い、preview は同じ API contract を実 origin で検証できる。取得失敗はプロフィールを保つ unavailable state に変換される。
+production は Cloudflare 内の低遅延経路を使い、preview は同じ API contract を実 origin で検証できる。通信経路にかかわらず、Home は同じ検証済みの return type と error contract を扱う。
 
 ## 関連文書
 
 - [Home ページ仕様](../features/home-page.feature)
+- [ADR 0006: ツールチェーンとバージョン固定](0006-toolchain-and-version-pinning.md)
 - [Content package 仕様](https://github.com/daiksudcom/content/blob/main/docs/features/content-package.feature)

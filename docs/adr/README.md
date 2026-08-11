@@ -7,7 +7,7 @@ tags: [home, adr, architecture, index]
 status: stable
 generated:
   by: "codex/gpt-5.6-sol"
-  at: 2026-08-10T07:07:01Z
+  at: 2026-08-11T21:36:04Z
 ---
 
 # Architecture Decision Records
@@ -22,3 +22,5 @@ generated:
 | 0006 | [ツールチェーンとバージョン固定](0006-toolchain-and-version-pinning.md) | 承認済み | 2026-08-10 |
 
 変更が必要になった決定は、新しい ADR で置き換え関係を明示します。
+
+ADR は判断の背景、理由、選択肢、トレードオフ、結果を記録します。具体的な値、URL、入出力、エラー、境界条件などの受け入れ条件は繰り返さず、対応する[振る舞い仕様](../features/README.md)を参照します。

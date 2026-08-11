@@ -7,7 +7,7 @@ tags: [home, adr, architecture, cloudflare-native-isr]
 status: stable
 generated:
   by: "codex/gpt-5.6-sol"
-  at: 2026-08-10T07:07:01Z
+  at: 2026-08-11T21:36:04Z
 ---
 
 # ADR 0004: Cloudflare native ISR
@@ -26,7 +26,7 @@ Home は edge cache の速度を保ちながら、Content release 後に最新�
 
 ## 決定
 
-production Wrangler 設定で `cache.enabled=true` とし、Cloudflare native Workers Caching を ISR 相当の配信層にする。ブラウザーには `Cache-Control: public, max-age=0`、Cloudflare には `Cloudflare-CDN-Cache-Control: public, max-age=300, stale-while-revalidate=3600, stale-if-error=86400` を返す。Blog 由来の Home に `content-blog-current` を付け、将来の複合ページには由来する全 resource tag を付ける。Worker version 固有 cache key を採用し、Content release が変更 resource tag を purge する。
+production Wrangler 設定で `cache.enabled=true` とし、Cloudflare native Workers Caching を ISR 相当の配信層にする。Content が定義する resource tag を応答へ付け、release 時に変更された resource の tag を purge する。複数 resource に由来するページには、由来するすべての tag を付ける。デプロイ間で古い応答を再利用しないため、Worker version 固有 cache key を採用する。具体的な cache policy と観測可能な更新動作は [Home ISR 仕様](../features/home-isr.feature)を正本とする。
 
 ## 検討した選択肢
 
@@ -36,7 +36,7 @@ production Wrangler 設定で `cache.enabled=true` とし、Cloudflare native Wo
 
 ## 結果
 
-MISS は SSR して保存され、HIT は Worker 処理を迂回する。300秒後は最大3600秒 stale を返しながら更新し、更新障害時は最大86400秒 stale を利用する。`CF-Cache-Status` を運用観測に使う。
+edge からキャッシュ済み応答を配信しながら、期限切れ応答の再検証、更新障害時の stale 配信、Content release による resource 単位の無効化が可能になる。cache policy の変更は利用者が観測する鮮度と障害耐性に影響するため、振る舞い仕様と同時に更新する。
 
 ## 関連文書
 
