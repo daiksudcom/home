@@ -1,13 +1,13 @@
 ---
 type: "Architecture Decision Record Index"
 title: "Architecture Decision Records"
-description: "Homeのリポジトリ境界、SSR、Content API、ISR、SEO、ツールチェーンに関する設計判断への索引である。"
+description: "Homeのリポジトリ境界、SSR、Content API、ISR、SEO、ツールチェーン、Git品質ゲートに関する設計判断への索引である。"
 resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/README.md"
 tags: [home, adr, architecture, index]
 status: stable
 generated:
   by: "codex/gpt-5.6-sol"
-  at: 2026-08-12T13:46:20Z
+  at: 2026-08-13T07:51:46+09:00
 ---
 
 # Architecture Decision Records
@@ -20,6 +20,7 @@ generated:
 | 0004 | [Cloudflare native ISR](0004-cloudflare-native-isr.md) | 承認済み | 2026-08-10 |
 | 0005 | [domain と SEO の所有権](0005-domain-and-seo-ownership.md) | 承認済み | 2026-08-10 |
 | 0006 | [ツールチェーンとバージョン固定](0006-toolchain-and-version-pinning.md) | 承認済み | 2026-08-10 |
+| 0007 | [Git 品質ゲート](0007-git-quality-gates.md) | 承認済み | 2026-08-13 |
 
 実装前で、まだコードや利用者へ影響していない決定は、既存 ADR を直接改訂して `generated.at` を更新できます。実装後に変更が必要になった決定は、新しい ADR で置き換え関係を明示します。
 

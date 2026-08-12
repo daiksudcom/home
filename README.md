@@ -36,11 +36,27 @@ pnpm build
 pnpm preview
 ```
 
+## コミット時の検査
+
+`pnpm install` は Husky の Git hook を有効にします。コミット前には lint-staged が staged ファイルだけを対象に整形と lint を順番に実行し、整形結果を自動的に再度 stage します。検査に失敗した場合はコミットを中止します。
+
+コミットメッセージと pull request のタイトルには Conventional Commits 形式を使います。
+
+```text
+feat(home): add profile navigation
+fix(seo): preserve canonical URL
+docs: explain local validation
+```
+
+`commit-msg` hook はコミットメッセージを検証します。CI でも pull request のタイトルと含まれる全コミット、および `main` へ push されたコミットを検証するため、`--no-verify` で省略したローカル検査も共有前に検出できます。`main` への通常の fast-forward push では追加コミットだけを検証し、直前の revision が all-zero、取得不能、または新しい `HEAD` の祖先でない場合は、fail-closed として新しい `HEAD` から到達可能な全履歴を検証します。GitHub 形式の two-parent pull request merge commit 本体だけは検証対象から除きます。リポジトリ全体の検証は引き続き `pnpm validate` で実行します。
+
 | ツール | 担当範囲 | 実行コマンド |
 | --- | --- | --- |
 | Astro | 型と Astro コンポーネントの検査 | `pnpm check` |
 | Biome | JavaScript / TypeScript / JSON / CSS の整形と lint | `pnpm lint:biome` |
+| Commitlint | コミットメッセージと pull request タイトルの検証 | `pnpm lint:commit` |
 | ESLint | 型情報を使う TypeScript と Astro の意味的検査 | `pnpm lint:eslint` |
+| Husky / lint-staged | Git hook と staged ファイルの整形・lint | `pnpm lint:staged` |
 | Stylelint | CSS と Astro の `<style>` ブロックの検査 | `pnpm lint:stylelint` |
 | rumdl | Markdown / MDX の lint と整形 | `pnpm lint:rumdl`、`pnpm format`、`pnpm format:check` |
 | Prettier | Astro / YAML の整形 | `pnpm format`、`pnpm format:check` |

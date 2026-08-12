@@ -2,6 +2,7 @@ name: ci
 
 on:
   pull_request:
+    types: [opened, synchronize, reopened, edited]
   push:
     branches: [main]
 
@@ -23,6 +24,8 @@ jobs:
     timeout-minutes: 10
     steps:
       - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
       - uses: pnpm/action-setup@v4
         with:
           run_install: false
@@ -31,6 +34,65 @@ jobs:
           node-version-file: .nvmrc
           cache: pnpm
       - run: pnpm install --frozen-lockfile
+      - name: Validate pull request title and commits
+        if: github.event_name == 'pull_request'
+        env:
+          BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+        run: |
+          title_status=0
+          commits_status=0
+
+          printf '%s\n' '::group::Pull request title'
+          printf '%s\n' "$PR_TITLE" | pnpm lint:commit --verbose || title_status=$?
+          printf '%s\n' '::endgroup::'
+
+          printf '%s\n' '::group::Pull request commits'
+          pnpm lint:commit --from "$BASE_SHA" --to "$HEAD_SHA" --verbose || commits_status=$?
+          printf '%s\n' '::endgroup::'
+
+          if ((title_status != 0 || commits_status != 0)); then
+            exit 1
+          fi
+      - name: Validate pushed commits
+        if: github.event_name == 'push'
+        env:
+          BEFORE_SHA: ${{ github.event.before }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+
+          git cat-file -e "${HEAD_SHA}^{commit}"
+          if [[ "$BEFORE_SHA" =~ ^0+$ ]]; then
+            commit_range="$HEAD_SHA"
+            printf '%s\n' 'Previous revision is all-zero; validating all reachable history.'
+          elif ! git cat-file -e "${BEFORE_SHA}^{commit}" 2>/dev/null; then
+            commit_range="$HEAD_SHA"
+            printf '%s\n' 'Previous revision is unavailable; validating all reachable history.'
+          elif git merge-base --is-ancestor "$BEFORE_SHA" "$HEAD_SHA"; then
+            commit_range="${BEFORE_SHA}..${HEAD_SHA}"
+          else
+            commit_range="$HEAD_SHA"
+            printf '%s\n' 'Non-fast-forward push detected; validating all reachable history.'
+          fi
+
+          commit_list="$RUNNER_TEMP/commitlint-shas"
+          git rev-list --reverse "$commit_range" > "$commit_list"
+          if [[ ! -s "$commit_list" ]]; then
+            printf '%s\n' 'No commits were found in the validation range.' >&2
+            exit 1
+          fi
+          while IFS= read -r commit_sha; do
+            subject=$(git show -s --format='%s' "$commit_sha")
+            read -r -a parents <<< "$(git show -s --format='%P' "$commit_sha")"
+            if ((${#parents[@]} == 2)) &&
+              [[ "$subject" =~ ^Merge\ pull\ request\ \#[0-9]+\ from\ [^[:space:]]+$ ]]; then
+              printf 'Skipping GitHub-style pull request merge %s\n' "$commit_sha"
+              continue
+            fi
+            git show -s --format='%B' "$commit_sha" | pnpm lint:commit --verbose
+          done < "$commit_list"
       - run: pnpm format:check
       - run: pnpm lint
       - run: pnpm check
