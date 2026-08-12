@@ -1,0 +1,7 @@
+{
+  "$schema": "https://unpkg.com/knip@6/schema-jsonc.json",
+  "ignoreIssues": {
+    // Astro consumes exported Props interfaces when compiling components.
+    "**/*.astro": ["types"]
+  }
+}

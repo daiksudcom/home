@@ -1,0 +1,47 @@
+{
+  "name": "@daiksudcom/home",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "check": "astro check",
+    "lint": "pnpm run lint:biome && pnpm run lint:eslint && pnpm run lint:stylelint && pnpm run lint:rumdl && pnpm run lint:knip",
+    "lint:biome": "biome lint",
+    "lint:eslint": "eslint . --cache --cache-location node_modules/.cache/eslint --concurrency=auto --no-error-on-unmatched-pattern",
+    "lint:stylelint": "stylelint \"src/**/*.{css,astro}\" --allow-empty-input",
+    "lint:rumdl": "rumdl check .",
+    "lint:knip": "cross-env KNIP_DISABLE_RAW_TRANSFER=1 knip",
+    "format": "biome format --write && prettier --write \"**/*\" --ignore-unknown --cache && rumdl fmt .",
+    "format:check": "biome format && prettier --check \"**/*\" --ignore-unknown --cache && rumdl fmt --check .",
+    "validate": "pnpm run format:check && pnpm run lint && pnpm run check && pnpm run build"
+  },
+  "dependencies": {
+    "astro": "7.2.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.10",
+    "@biomejs/biome": "2.5.7",
+    "@typescript-eslint/parser": "8.67.0",
+    "cross-env": "10.1.0",
+    "eslint": "10.8.1",
+    "eslint-plugin-astro": "3.1.0",
+    "knip": "6.32.1",
+    "postcss-html": "2.0.0",
+    "prettier": "3.9.6",
+    "prettier-plugin-astro": "0.14.1",
+    "rumdl": "0.2.53",
+    "stylelint": "17.14.1",
+    "stylelint-config-html": "2.0.0",
+    "stylelint-config-standard": "40.0.0",
+    "typescript": "6.0.3",
+    "typescript-eslint": "8.67.0"
+  },
+  "engines": {
+    "node": ">=24.16.0",
+    "pnpm": ">=11.0.0"
+  },
+  "packageManager": "pnpm@11.21.0"
+}
