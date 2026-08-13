@@ -1,5 +1,6 @@
 allowBuilds:
   esbuild: true
+  sharp: true
 
 # Keep optional lint peers explicit rather than installing unused peer packages.
 autoInstallPeers: false
