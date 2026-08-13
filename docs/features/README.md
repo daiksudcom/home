@@ -1,13 +1,13 @@
 ---
 type: "Gherkin Specification Index"
 title: "振る舞い仕様"
-description: "Homeページ、ISR、SEOの観測可能な振る舞いを定義するGherkin仕様への索引である。"
+description: "Homeページ、ISR、SEO、DeployとProduct Releaseの観測可能な振る舞いを定義するGherkin仕様への索引である。"
 resource: "https://github.com/daiksudme/home/blob/main/docs/features/README.md"
 tags: [home, gherkin, specification, index]
 status: stable
 generated:
   by: "codex/gpt-5.6-sol"
-  at: 2026-08-13T00:35:00Z
+  at: 2026-08-13T04:30:00Z
 ---
 
 # 振る舞い仕様
@@ -19,5 +19,6 @@ generated:
 - [Home ページ](home-page.feature)
 - [Home の ISR](home-isr.feature)
 - [Home の SEO](home-seo.feature)
+- [Deploy と Product Release](home-delivery.feature)
 
 各ファイルは一つの観測可能な能力を扱い、`@home` と能力別タグで分類します。

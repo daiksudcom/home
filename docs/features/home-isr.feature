@@ -30,6 +30,13 @@ Feature: Home を Cloudflare キャッシュから再生成する
     And 現在の Content の最新記事を含む Home 応答を返す
     And CF-Cache-Status で MISS を観測できる
 
+  Scenario: Feature Flag variant 間で cache を分離する
+    Given default-off の機能に由来する Home 応答が edge cache にある
+    When その機能を Product Release する
+    And 訪問者が Home を要求する
+    Then off variant の応答を返さない
+    And on variant の機能を含む Home 応答を返す
+
   Scenario: 期限切れ Home を更新する
     Given edge TTLを過ぎSWR期間内の Home 応答がある
     When 訪問者が Home を要求する
@@ -42,10 +49,10 @@ Feature: Home を Cloudflare キャッシュから再生成する
     When 訪問者が Home を要求する
     Then 利用可能な stale 応答を返す
 
-  Scenario: Content release 後に Home を再生成する
+  Scenario: Content Deploy 後に Home を再生成する
     Given 新しい Blog resource revision が production に昇格した
     And 以前の revision に由来する Home 応答が cache 済みである
-    When Content release が "content-blog-current" を purge する
+    When Content の Deploy workflow が "content-blog-current" を purge する
     And 訪問者が Home を要求する
     Then 現在の Blog resource revision の記事を含む Home 応答を返す
     And CF-Cache-Status で MISS を観測できる

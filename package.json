@@ -1,6 +1,6 @@
 {
   "name": "@daiksudme/home",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -17,9 +17,10 @@
     "lint:rumdl": "rumdl check .",
     "lint:staged": "lint-staged",
     "lint:knip": "cross-env KNIP_DISABLE_RAW_TRANSFER=1 knip",
+    "policy:test": "node --test .github/scripts/*.test.mjs",
     "format": "biome format --write && prettier --write \"**/*\" --ignore-unknown --cache && rumdl fmt .",
     "format:check": "biome format && prettier --check \"**/*\" --ignore-unknown --cache && rumdl fmt --check .",
-    "validate": "pnpm run format:check && pnpm run lint && pnpm run check && pnpm run build"
+    "validate": "pnpm run format:check && pnpm run lint && pnpm run policy:test && pnpm run check && pnpm run build"
   },
   "dependencies": {
     "astro": "7.2.0"
@@ -45,7 +46,8 @@
     "stylelint-config-html": "2.0.0",
     "stylelint-config-standard": "40.0.0",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.67.0"
+    "typescript-eslint": "8.67.0",
+    "wrangler": "4.107.0"
   },
   "engines": {
     "node": ">=24.16.0",

@@ -4,13 +4,14 @@
 
 ## 現在の状態
 
-実装開始前の基準として、観測可能な振る舞いを Gherkin、技術的な決定を Architecture Decision Records（ADR）で確定しています。
+実装開始前の基準として、観測可能な振る舞いを Gherkin、技術的な決定を Architecture Decision Records（ADR）で確定しています。Deploy と Product Release の自動化は安全な初期状態で配置済みですが、Worker 実装と Cloudflare 設定が揃うまで gate で停止しています。
 
 ## 仕様書
 
 - [文書の案内](docs/README.md)
 - [振る舞い仕様](docs/features/README.md)
 - [Architecture Decision Records](docs/adr/README.md)
+- [GitHub、Deploy、Release の運用](.github/README.md)
 
 ## ローカル開発
 
@@ -49,6 +50,12 @@ docs: explain local validation
 ```
 
 `commit-msg` hook はコミットメッセージを検証します。CI でも pull request のタイトルと含まれる全コミット、および `main` へ push されたコミットを検証するため、`--no-verify` で省略したローカル検査も共有前に検出できます。`main` への通常の fast-forward push では追加コミットだけを検証し、直前の revision が all-zero、取得不能、または新しい `HEAD` の祖先でない場合は、fail-closed として新しい `HEAD` から到達可能な全履歴を検証します。GitHub 形式の two-parent pull request merge commit 本体だけは検証対象から除きます。リポジトリ全体の検証は引き続き `pnpm validate` で実行します。
+
+PR branch は `feat/<slug>`、`fix/<slug>` などの規約に従います。branchから付くlabelはPolicy CIとは独立したGitHub UI向けの分類です。PRタイトルの型に対して`package.json#version`が正しいbumpになっているかはPolicy CIが検証します。ローカルでは次を実行できます。
+
+```sh
+pnpm policy:test
+```
 
 | ツール | 担当範囲 | 実行コマンド |
 | --- | --- | --- |
