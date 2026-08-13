@@ -71,6 +71,13 @@ jobs:
           printf 'tag=%s\n' "$(jq -r .tag <<<"$resolved")" >> "$GITHUB_OUTPUT"
           printf 'version=%s\n' "$(jq -r .version <<<"$resolved")" >> "$GITHUB_OUTPUT"
           printf 'core-changed=%s\n' "$(jq -r .coreChanged <<<"$resolved")" >> "$GITHUB_OUTPUT"
+      # An annotated tag object requires a tagger identity; the runner has no default git
+      # user, so `git tag --annotate` below would otherwise fail with "unable to
+      # auto-detect email address".
+      - name: Configure git identity for the release tag
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
       # The build identifier is derived from the commit, so a retried run resolves the same
       # tag name and this step becomes a no-op instead of creating a second tag.
       - name: Create the tag when it does not exist yet
