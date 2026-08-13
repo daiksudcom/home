@@ -1,0 +1,22 @@
+changelog:
+  categories:
+    - title: '💥 BREAKING CHANGE'
+      labels: ['BREAKING CHANGE']
+    - title: '⚠️ DEPRECATED'
+      labels: [DEPRECATED]
+    - title: '🚀 Features'
+      labels: [feat, perf]
+    - title: '🐛 Bug Fixes'
+      labels: [fix]
+    - title: '⏪ Reverts'
+      labels: [revert]
+    - title: '🚚 Release Operations'
+      labels: [release]
+    - title: '📰 Content'
+      labels: [content]
+    - title: '📝 Documentation'
+      labels: [docs]
+    - title: '🧹 Maintenance'
+      labels: [refactor, style, test, build, ci, chore]
+    - title: '🔧 Other Changes'
+      labels: ['*']

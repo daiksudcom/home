@@ -1,0 +1,59 @@
+# Version-impact labels are derived only from the pull request head branch.
+# Changed-file rules below are intentionally non-versioning classifications.
+'BREAKING CHANGE':
+  - head-branch: ['^breaking-change/(?:feat|perf|fix)/']
+
+DEPRECATED:
+  - head-branch: ['^deprecated/(?:feat|perf|fix)/']
+
+feat:
+  - head-branch: ['^(?:(?:breaking-change|deprecated)/)?feat/']
+
+perf:
+  - head-branch: ['^(?:(?:breaking-change|deprecated)/)?perf/']
+
+fix:
+  - head-branch: ['^(?:(?:breaking-change|deprecated)/)?fix/']
+
+revert:
+  - head-branch: ['^(?:revert|rollback/v[0-9]+\.[0-9]+\.[0-9]+)/']
+
+release:
+  - head-branch: ['^(?:release|rollback)/v[0-9]+\.[0-9]+\.[0-9]+/']
+
+docs:
+  - any:
+      - head-branch: ['^docs/']
+      - changed-files:
+          - any-glob-to-all-files:
+              - '{docs/**,**/*.md,**/*.mdx}'
+
+refactor:
+  - head-branch: ['^refactor/']
+
+style:
+  - head-branch: ['^style/']
+
+test:
+  - any:
+      - head-branch: ['^test/']
+      - changed-files:
+          - any-glob-to-all-files:
+              - '{test/**,tests/**,**/*.test.*,**/*.spec.*}'
+
+build:
+  - any:
+      - head-branch: ['^build/']
+      - changed-files:
+          - any-glob-to-all-files:
+              - '{package.json,pnpm-lock.yaml,pnpm-workspace.yaml,astro.config.*,tsconfig.json,wrangler.json,wrangler.jsonc,wrangler.toml}'
+
+ci:
+  - any:
+      - head-branch: ['^ci/']
+      - changed-files:
+          - any-glob-to-all-files:
+              - '.github/**'
+
+chore:
+  - head-branch: ['^(?:chore/|release/v[0-9]+\.[0-9]+\.[0-9]+/)']
