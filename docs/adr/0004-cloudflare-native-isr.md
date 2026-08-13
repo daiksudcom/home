@@ -2,12 +2,12 @@
 type: "Architecture Decision Record"
 title: "ADR 0004: Cloudflare native ISR"
 description: "Cloudflare native Workers CachingをISR配信層に採用し、TTL、stale配信、resource tag purgeを定める。"
-resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/0004-cloudflare-native-isr.md"
+resource: "https://github.com/daiksudme/home/blob/main/docs/adr/0004-cloudflare-native-isr.md"
 tags: [home, adr, architecture, cloudflare-native-isr]
 status: stable
 generated:
   by: "codex/gpt-5.6-sol"
-  at: 2026-08-11T21:36:04Z
+  at: 2026-08-13T00:35:00Z
 ---
 
 # ADR 0004: Cloudflare native ISR
@@ -41,4 +41,4 @@ edge からキャッシュ済み応答を配信しながら、期限切れ応答
 ## 関連文書
 
 - [Home ISR 仕様](../features/home-isr.feature)
-- [Content cache 仕様](https://github.com/daiksudcom/content/blob/main/docs/features/content-cache.feature)
+- [Content cache 仕様](https://github.com/daiksudme/content/blob/main/docs/features/content-cache.feature)

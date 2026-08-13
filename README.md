@@ -1,6 +1,6 @@
 # Home
 
-`daiksud.com` のプロフィール、主要リンク、最新ブログ記事、SEO、キャッシュの振る舞いを定義するリポジトリです。
+`daiksud.me` のプロフィール、主要リンク、最新ブログ記事、SEO、キャッシュの振る舞いを定義するリポジトリです。
 
 ## 現在の状態
 
@@ -66,6 +66,6 @@ docs: explain local validation
 
 ## 関連リポジトリ
 
-- [Blog](https://github.com/daiksudcom/blog)
-- [Content](https://github.com/daiksudcom/content)
-- [UI](https://github.com/daiksudcom/ui)
+- [Blog](https://github.com/daiksudme/blog)
+- [Content](https://github.com/daiksudme/content)
+- [UI](https://github.com/daiksudme/ui)

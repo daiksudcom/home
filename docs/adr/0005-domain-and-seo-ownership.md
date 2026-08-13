@@ -1,13 +1,13 @@
 ---
 type: "Architecture Decision Record"
 title: "ADR 0005: domain と SEO の所有権"
-description: "daiksud.comをHomeの公開originとcanonicalに定め、SEO metadataとanalyticsの所有権をHomeに置く。"
-resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/0005-domain-and-seo-ownership.md"
+description: "daiksud.meをHomeの公開originとcanonicalに定め、SEO metadataとanalyticsの所有権をHomeに置く。"
+resource: "https://github.com/daiksudme/home/blob/main/docs/adr/0005-domain-and-seo-ownership.md"
 tags: [home, adr, architecture, domain, seo, ownership]
 status: stable
 generated:
   by: "codex/gpt-5.6-sol"
-  at: 2026-08-11T21:36:04Z
+  at: 2026-08-13T00:35:00Z
 ---
 
 # ADR 0005: domain と SEO の所有権
@@ -26,7 +26,7 @@ generated:
 
 ## 決定
 
-`https://daiksud.com/` を Home の公開 origin と canonical authority にする。Home は自身の discovery metadata を所有し、外部 resource には所有 origin が定める canonical URL でリンクする。production の page view は Cloudflare Web Analytics で計測する。公開する URL と metadata の具体的な契約は [Home SEO 仕様](../features/home-seo.feature)を正本とする。
+`https://daiksud.me/` を Home の公開 origin と canonical authority にする。Home は自身の discovery metadata を所有し、外部 resource には所有 origin が定める canonical URL でリンクする。production の page view は Cloudflare Web Analytics で計測する。公開する URL と metadata の具体的な契約は [Home SEO 仕様](../features/home-seo.feature)を正本とする。
 
 ## 検討した選択肢
 
@@ -42,4 +42,4 @@ Home、Blog、Content の URL authority が分離され、crawler は Home と�
 
 - [Home SEO 仕様](../features/home-seo.feature)
 - [Home ページ仕様](../features/home-page.feature)
-- [Blog の feed と SEO ADR](https://github.com/daiksudcom/blog/blob/main/docs/adr/0007-feed-and-seo.md)
+- [Blog の feed と SEO ADR](https://github.com/daiksudme/blog/blob/main/docs/adr/0007-feed-and-seo.md)

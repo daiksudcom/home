@@ -2,17 +2,17 @@
 type: "Documentation Index"
 title: "文書"
 description: "Homeの受け入れ基準となる振る舞い仕様と技術判断への入口を提供する。"
-resource: "https://github.com/daiksudcom/home/blob/main/docs/README.md"
+resource: "https://github.com/daiksudme/home/blob/main/docs/README.md"
 tags: [home, documentation, index]
 status: stable
 generated:
   by: "codex/gpt-5.6-sol"
-  at: 2026-08-11T21:36:04Z
+  at: 2026-08-13T00:35:00Z
 ---
 
 # 文書
 
-このディレクトリは `daiksud.com` の受け入れ基準と技術判断を管理します。
+このディレクトリは `daiksud.me` の受け入れ基準と技術判断を管理します。
 
 ## 文書の責務
 
@@ -21,4 +21,4 @@ generated:
 
 観測可能な契約について両者の記述が異なる場合は、振る舞い仕様を現在の仕様として扱います。
 
-Home は [Content](https://github.com/daiksudcom/content) から最新記事を取得し、[Blog](https://github.com/daiksudcom/blog) の恒久 URL へ読者を案内します。
+Home は [Content](https://github.com/daiksudme/content) から最新記事を取得し、[Blog](https://github.com/daiksudme/blog) の恒久 URL へ読者を案内します。

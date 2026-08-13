@@ -2,12 +2,12 @@
 type: "Architecture Decision Record"
 title: "ADR 0001: Home のリポジトリ境界"
 description: "Homeが所有する表示と配信の責務を、Blog、Content、UIの責務から分離することを定める。"
-resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/0001-repository-boundary.md"
+resource: "https://github.com/daiksudme/home/blob/main/docs/adr/0001-repository-boundary.md"
 tags: [home, adr, architecture, repository-boundary]
 status: stable
 generated:
   by: "codex/gpt-5.6-sol"
-  at: 2026-08-11T21:36:04Z
+  at: 2026-08-13T00:35:00Z
 ---
 
 # ADR 0001: Home のリポジトリ境界
@@ -26,7 +26,7 @@ Home はプロフィールと主要な入口を提供し、Blog、Content、UI �
 
 ## 決定
 
-`home` リポジトリは Home 公開 origin のアプリケーションと配信 release を独立して所有する。最新記事のデータは [Content](https://github.com/daiksudcom/content)、記事の公開ページは [Blog](https://github.com/daiksudcom/blog)、共有表示契約は [UI](https://github.com/daiksudcom/ui) が所有する。SSR、cache、SEO の設計判断はそれぞれの ADR で管理する。
+`home` リポジトリは Home 公開 origin のアプリケーションと配信 release を独立して所有する。最新記事のデータは [Content](https://github.com/daiksudme/content)、記事の公開ページは [Blog](https://github.com/daiksudme/blog)、共有表示契約は [UI](https://github.com/daiksudme/ui) が所有する。SSR、cache、SEO の設計判断はそれぞれの ADR で管理する。
 
 ## 検討した選択肢
 

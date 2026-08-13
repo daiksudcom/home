@@ -2,12 +2,12 @@
 type: "Architecture Decision Record"
 title: "ADR 0007: Git 品質ゲート"
 description: "stagedファイル、コミットメッセージ、pull requestタイトルをローカルとCIで検証する。"
-resource: "https://github.com/daiksudcom/home/blob/main/docs/adr/0007-git-quality-gates.md"
+resource: "https://github.com/daiksudme/home/blob/main/docs/adr/0007-git-quality-gates.md"
 tags: [home, adr, architecture, git-hooks, conventional-commits]
 status: stable
 generated:
   by: "codex/gpt-5.6-sol"
-  at: 2026-08-13T08:28:55+09:00
+  at: 2026-08-13T00:35:00Z
 ---
 
 # ADR 0007: Git 品質ゲート
