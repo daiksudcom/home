@@ -10,10 +10,6 @@ changelog:
       labels: [fix]
     - title: '⏪ Reverts'
       labels: [revert]
-    - title: '🚚 Release Operations'
-      labels: [release]
-    - title: '📰 Content'
-      labels: [content]
     - title: '📝 Documentation'
       labels: [docs]
     - title: '🧹 Maintenance'

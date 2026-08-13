@@ -32,9 +32,6 @@ spec:
     - name: ci
       description: CI configuration and automation changes
       color: cfd3d7
-    - name: content
-      description: Article or media content changes
-      color: 5319e7
     - name: docs
       description: Documentation-only changes
       color: c4b5e0
@@ -50,9 +47,6 @@ spec:
     - name: refactor
       description: Code restructuring with no behavior change
       color: 8ec9cc
-    - name: release
-      description: Product release or rollback operation
-      color: d93f0b
     - name: revert
       description: Reverts previously released behavior (PATCH)
       color: 79b8ff
